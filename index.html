@@ -1,14 +1,19 @@
+```html
 <!DOCTYPE html>
 <html lang="kk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Данагүл — Қыз ұзату</title>
+
+<title>Динара — Қыз ұзату</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
@@ -22,6 +27,8 @@ background-size:cover;
 color:#5a4a42;
 overflow-x:hidden;
 }
+
+/* Ою-өрнектер */
 
 .ornament-top{
 position:fixed;
@@ -44,7 +51,7 @@ pointer-events:none;
 z-index:1;
 }
 
-/* HERO */
+/* Басты экран */
 
 .hero{
 position:relative;
@@ -95,7 +102,7 @@ opacity:0.95;
 margin-top:14px;
 }
 
-/* sections */
+/* Бөлімдер */
 
 .section{
 display:flex;
@@ -124,6 +131,8 @@ padding:50px;
 border-radius:35px;
 box-shadow:0 15px 40px rgba(0,0,0,0.07);
 max-width:860px;
+width:calc(100% - 60px);
+box-sizing:border-box;
 }
 
 h2{
@@ -131,7 +140,7 @@ font-size:48px;
 margin:0 0 28px 0;
 }
 
-/* calendar */
+/* Күнтізбе */
 
 .month-title{
 font-size:38px;
@@ -139,15 +148,23 @@ margin:0 0 18px 0;
 color:#b48a5a;
 }
 
-.calendar table{
+.calendar{
 width:100%;
 max-width:640px;
-border-collapse:collapse;
-font-size:30px;
 }
 
-.calendar td,.calendar th{
-padding:14px;
+.calendar table{
+width:100%;
+border-collapse:separate;
+border-spacing:8px;
+font-size:30px;
+table-layout:fixed;
+}
+
+.calendar td,
+.calendar th{
+padding:12px 5px;
+text-align:center;
 }
 
 .highlight{
@@ -155,9 +172,15 @@ background:#b48a5a;
 color:white;
 border-radius:50%;
 font-weight:bold;
+width:45px;
+height:45px;
+line-height:45px;
+padding:0 !important;
+margin:auto;
+display:table-cell;
 }
 
-/* schedule */
+/* Бағдарлама */
 
 .schedule-item{
 font-size:30px;
@@ -166,7 +189,7 @@ color:#b48a5a;
 font-weight:600;
 }
 
-/* button */
+/* Карта батырмасы */
 
 .map-btn{
 display:inline-block;
@@ -178,9 +201,15 @@ text-decoration:none;
 font-size:24px;
 font-weight:bold;
 margin-top:28px;
+transition:0.3s;
 }
 
-/* hosts */
+.map-btn:hover{
+transform:scale(1.04);
+background:#239b61;
+}
+
+/* Той иелері */
 
 .hosts-names{
 font-size:40px;
@@ -197,7 +226,7 @@ margin:0 12px;
 opacity:0.6;
 }
 
-/* music */
+/* Музыка батырмасы */
 
 .music-btn{
 position:fixed;
@@ -215,9 +244,15 @@ font-size:32px;
 cursor:pointer;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
 z-index:10;
+user-select:none;
+transition:0.3s;
 }
 
-/* petals */
+.music-btn:hover{
+transform:scale(1.08);
+}
+
+/* Гүл жапырақтары */
 
 .petal{
 position:fixed;
@@ -230,7 +265,7 @@ animation:fall linear infinite;
 @keyframes fall{
 
 0%{
-transform:translateY(-60px) translateX(0px) rotate(0deg);
+transform:translateY(-60px) translateX(0) rotate(0deg);
 }
 
 50%{
@@ -243,33 +278,82 @@ transform:translateY(110vh) translateX(-30px) rotate(360deg);
 
 }
 
-/* mobile */
+/* Телефонға арналған нұсқа */
 
 @media (max-width:768px){
 
-h1{font-size:62px;}
-h2{font-size:34px;}
+h1{
+font-size:62px;
+}
 
-.hero p{font-size:22px;}
-.hero .subtitle{font-size:18px;}
+h2{
+font-size:34px;
+line-height:1.3;
+}
+
+.hero p{
+font-size:22px;
+}
+
+.hero .subtitle{
+font-size:18px;
+}
 
 .section{
 font-size:20px;
 padding:45px 18px;
 }
 
-.calendar table{font-size:22px;}
+.box{
+padding:30px 22px;
+width:100%;
+}
 
-.month-title{font-size:26px;}
+.calendar table{
+font-size:18px;
+border-spacing:3px;
+}
 
-.box{padding:30px;}
+.calendar td,
+.calendar th{
+padding:9px 2px;
+}
 
-.schedule-item{font-size:22px;}
+.highlight{
+width:38px;
+height:38px;
+line-height:38px;
+}
 
-.hosts-names{font-size:30px;}
+.month-title{
+font-size:28px;
+}
+
+.schedule-item{
+font-size:22px;
+}
+
+.hosts-names{
+font-size:30px;
+}
 
 .ornament-top,
-.ornament-bottom{width:170px;}
+.ornament-bottom{
+width:170px;
+}
+
+.map-btn{
+padding:16px 28px;
+font-size:20px;
+}
+
+.music-btn{
+width:62px;
+height:62px;
+font-size:27px;
+bottom:18px;
+right:18px;
+}
 
 }
 
@@ -278,8 +362,10 @@ padding:45px 18px;
 
 <body>
 
-<img src="ornament.png" class="ornament-top">
-<img src="ornament.png" class="ornament-bottom">
+<img src="ornament.png" class="ornament-top" alt="">
+<img src="ornament.png" class="ornament-bottom" alt="">
+
+<!-- Басты экран -->
 
 <div class="hero">
 
@@ -288,32 +374,40 @@ padding:45px 18px;
 </video>
 
 <div>
-<h1>Данагүл</h1>
+<h1>Динара</h1>
 <p>Қыз ұзату</p>
-<div class="subtitle">25.06.2026</div>
+<div class="subtitle">24.10.2026</div>
 </div>
 
 </div>
+
+<!-- Шақыру мәтіні -->
 
 <div class="section">
+
 <div class="box">
 
 <h2>Құрметті ағайын-туыс, құда-жекжат, дос-жаран!</h2>
 
-Сіздерді кенже аяулы қызымыз <b>Данагүлдің</b> ұзату тойына арналған 
-қуанышты дастарханымыздың қадірлі қонағы болуға шақырамыз.  
+Сіздерді аяулы қызымыз
+<b>Динараның</b>
+ұзату тойына арналған қуанышты дастарханымыздың қадірлі қонағы болуға шақырамыз.
 
 <br><br>
 
-Ақ тілектеріңізді білдіріп, қуанышымызды бірге бөлісіңіздер.
+Ақ тілектеріңізді білдіріп, қуанышымызды бірге бөлісіңіздер!
 
 </div>
+
 </div>
+
+<!-- Күнтізбе -->
 
 <div class="section">
 
 <h2>Ұзату күні</h2>
-<h3 class="month-title">Маусым 2026</h3>
+
+<h3 class="month-title">Қазан 2026</h3>
 
 <div class="calendar">
 
@@ -333,66 +427,59 @@ padding:45px 18px;
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
 <td>1</td>
-</tr>
-
-<tr>
 <td>2</td>
 <td>3</td>
 <td>4</td>
+</tr>
+
+<tr>
 <td>5</td>
 <td>6</td>
 <td>7</td>
 <td>8</td>
-</tr>
-
-<tr>
 <td>9</td>
 <td>10</td>
 <td>11</td>
+</tr>
+
+<tr>
 <td>12</td>
 <td>13</td>
 <td>14</td>
 <td>15</td>
-</tr>
-
-<tr>
 <td>16</td>
 <td>17</td>
 <td>18</td>
+</tr>
+
+<tr>
 <td>19</td>
 <td>20</td>
 <td>21</td>
 <td>22</td>
+<td>23</td>
+<td class="highlight">24</td>
+<td>25</td>
 </tr>
 
 <tr>
-<td>23</td>
-<td>24</td>
-<td class="highlight">25</td>
 <td>26</td>
 <td>27</td>
 <td>28</td>
 <td>29</td>
-</tr>
-
-<tr>
 <td>30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>31</td>
 <td></td>
 </tr>
 
 </table>
 
 </div>
+
 </div>
+
+<!-- Бағдарлама -->
 
 <div class="section">
 
@@ -400,12 +487,19 @@ padding:45px 18px;
 
 <h2>Бағдарлама</h2>
 
-<div class="schedule-item">🕒 15:00 – Қонақтардың жиналуы</div>
-<div class="schedule-item">🕓 16:00 – Ұзату тойының басталуы</div>
+<div class="schedule-item">
+🕐 13:00 – Қонақтардың жиналуы
+</div>
 
+<div class="schedule-item">
+🕑 14:00 – Ұзату тойының басталуы
 </div>
 
 </div>
+
+</div>
+
+<!-- Мекенжай -->
 
 <div class="section">
 
@@ -413,97 +507,138 @@ padding:45px 18px;
 
 <h2>Мекенжай</h2>
 
-<b>Deluxe мейрамханасы</b>
+<b>Екібастұз қаласы</b>
+
+<br>
+
+«Керуен» мейрамханасы
+
+<br>
+
+Мәшһүр Жүсіп көшесі, 115А
 
 <br><br>
 
-<a href="https://2gis.kz/pavlodar/geo/70000001023335902/76.925110,52.030564" target="_blank" class="map-btn">
+<a
+href="https://2gis.kz/ekibastuz/search/%D0%9C%D3%99%D1%88%D2%BB%D2%AF%D1%80%20%D0%96%D2%AF%D1%81%D1%96%D0%BF%20115%D0%90"
+target="_blank"
+rel="noopener noreferrer"
+class="map-btn">
 📍 2ГИС арқылы ашу
 </a>
 
 </div>
 
+</div>
+
+<!-- Той иелері -->
+
 <div class="section">
 
-  <div class="box">
-    <h2>Той иесі</h2>
+<div class="box">
 
-    <div class="hosts-names">Анасы — Ляйля</div>
-    <div class="hosts-names">Ағасы мен жеңгесі — Даулет, Мадина</div>
+<h2>Той иелері</h2>
 
-  </div>
-
+<div class="hosts-names">
+Танат – Анар
 </div>
 
 </div>
 
+</div>
+
+<!-- Соңғы мәтін -->
+
 <div class="section">
 
-<div style="font-size:40px;font-weight:600;">
+<div style="font-size:40px; font-weight:600; max-width:900px;">
 Келіңіздер, ұзату тойымыздың қадірлі қонағы болыңыздар!
 </div>
 
 </div>
 
-<audio id="music" loop>
+<!-- Музыка -->
+
+<audio id="music" loop preload="auto">
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-btn" onclick="toggleMusic()">🎵</div>
+<div class="music-btn" id="musicButton" onclick="toggleMusic()">🎵</div>
 
 <script>
 
-const sections=document.querySelectorAll(".section");
+/* Бөлімдердің пайда болуы */
 
-const observer=new IntersectionObserver(entries=>{
+const sections = document.querySelectorAll(".section");
 
-entries.forEach(entry=>{
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
 if(entry.isIntersecting){
 entry.target.classList.add("visible");
 }
+
 });
 
-},{threshold:0.25});
+}, {
+threshold:0.15
+});
 
-sections.forEach(section=>observer.observe(section));
+sections.forEach(section => observer.observe(section));
 
-const music=document.getElementById("music");
+/* Музыка */
 
-let started=false;
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
 
-document.addEventListener("click",function(){
+let started = false;
 
-if(!started){
+document.addEventListener("click", function startMusic(event){
 
-music.play().catch(()=>{});
-started=true;
+if(!started && !event.target.closest(".music-btn")){
+
+music.play().catch(() => {});
+started = true;
+musicButton.textContent = "⏸";
 
 }
 
+}, {
+once:true
 });
 
 function toggleMusic(){
 
 if(music.paused){
-music.play().catch(()=>{});
-}
-else{
+
+music.play().catch(() => {});
+musicButton.textContent = "⏸";
+started = true;
+
+}else{
+
 music.pause();
-}
+musicButton.textContent = "🎵";
 
 }
 
-for(let i=0;i<55;i++){
+}
 
-const petal=document.createElement("img");
+/* Гүл жапырақтары */
 
-petal.src="petal.png";
-petal.className="petal";
+for(let i = 0; i < 55; i++){
 
-petal.style.left=Math.random()*100+"vw";
-petal.style.width=(18+Math.random()*22)+"px";
-petal.style.animationDuration=(6+Math.random()*8)+"s";
-petal.style.opacity=(0.55+Math.random()*0.4);
+const petal = document.createElement("img");
+
+petal.src = "petal.png";
+petal.className = "petal";
+
+petal.style.left = Math.random() * 100 + "vw";
+petal.style.width = 18 + Math.random() * 22 + "px";
+petal.style.animationDuration = 6 + Math.random() * 8 + "s";
+petal.style.animationDelay = Math.random() * 8 + "s";
+petal.style.opacity = 0.55 + Math.random() * 0.4;
 
 document.body.appendChild(petal);
 
@@ -513,3 +648,4 @@ document.body.appendChild(petal);
 
 </body>
 </html>
+```
